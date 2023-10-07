@@ -1,0 +1,39 @@
+int hasNValues(int[] a, int n){
+	int len = a.Length;
+	if(len<=0 || n<=0){
+		return 0;
+	}
+	int sorted = 0;
+	int temp = 0;
+	for(int i=0;i<len-1;i++){
+		for(int j=0;j<len-1;j++){
+			if(a[j]>a[j+1]){
+				temp = a[j+1];
+				a[j+1] = a[j];
+				a[j] = temp;
+				sorted = 1;
+			}
+		}
+		if(sorted == 0){
+			break;
+		}
+		
+		sorted = 0;
+	}
+
+	
+	int count =1;
+	int preVal = a[0];
+	for(int i=1;i<len;i++){
+		if(preVal  != a[i]){
+			count++;
+			preVal = a[i];
+		}
+	}
+
+	if(count == n){
+		return 1;
+	}
+
+	return 0;
+}

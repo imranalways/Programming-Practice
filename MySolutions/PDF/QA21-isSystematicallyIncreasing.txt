@@ -1,0 +1,39 @@
+int systematicallyIncreasing(int[] a){
+	int len =a.Length;
+	if(len ==0){
+		return 0;
+	}
+	
+	int count = 1;
+	int n = a[len-1];
+	int tempVal = 0;
+	int value = 1;
+	int iCount = 1;
+	int foundOk = 1;
+	for(int i = 0;i<len;i++){
+		if(n<a[i]){
+			foundOk = 0;
+			n=0;
+			break;
+		}
+	}	
+	
+	while(count<=n){
+		for(int i=tempVal;i<iCount;i++){
+			if(a[i] != value){
+				foundOk = 0;
+				break;
+			}
+			value++;
+		}
+		if(foundOk == 0){
+			break;
+		}
+		tempVal = iCount;
+		iCount = tempVal+value;
+		value =1;
+		count++;
+	}
+
+	return foundOk;
+}

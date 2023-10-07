@@ -1,0 +1,21 @@
+int countRepresentations(int n){
+	int count = 0;
+
+	for(int r20=0;r20<=n/20;r20++){
+		for(int r10=0;r10<=n/10;r10++){
+			for(int r5=0;r5<=n/5;r5++){
+				for(int r2=0;r2<=n/2;r2++){
+					for(int r1=0;r1<=n/1;r1++){
+						if((r1+r2*2+r5*5+r10*10+r20*20) == n){
+							count++;
+						}
+					}
+				}
+			}	
+		}
+	}
+		
+	return count;
+	
+
+}

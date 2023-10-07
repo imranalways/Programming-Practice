@@ -1,0 +1,39 @@
+int isFactorialPrime(int n){
+	bool Prime = isPrime(n);
+	if(!Prime){
+		return 0;	
+	}
+	
+	int isOk = Factorial(n);
+	
+	return isOk;
+}
+
+bool isPrime(int n){
+	bool ok = true;
+	int count = 2;
+	while(count<n){
+		if(n%count == 0){
+			ok = false;
+			break;
+		}
+		count++;
+	}
+
+	return ok;
+}
+
+int Factorial(int n){
+	int count = 1;
+	int factorial = 1;
+	int ok = 0;
+	while(count<=n){
+		factorial = factorial*count;
+		if(factorial+1 == n){
+		        ok = 1;
+		        break;
+		}
+		count++;
+	}
+	return ok;
+}

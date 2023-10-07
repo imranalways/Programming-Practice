@@ -1,0 +1,22 @@
+int isConsecutiveFactored(int n){
+	if(n<=0){
+		return 0;
+	}
+	int preFactor = 0;
+	for(int i=2;i<n;i++){
+		if(n%i == 0){
+			if(preFactor == 0){
+				preFactor = i;
+				continue;
+			}
+			if((i-1) == preFactor){
+				return 1;
+			}
+			else{
+				preFactor =i;
+			}
+		}
+	}
+	return 0;
+
+}

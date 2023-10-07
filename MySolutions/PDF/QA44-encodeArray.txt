@@ -1,0 +1,45 @@
+int[] encodeArray(int n){
+	int tempN = n;
+	if(n<0){
+		n=n*(-1);
+	}
+	int temp = n;
+	int quotient = 0;
+	int countLen = 0;
+	while(temp>0){
+		quotient  = temp%10;
+		countLen = countLen + quotient+1;
+		temp = temp/10;
+	}
+	if(n == 0){
+		return new int[1]{1};
+	}
+	
+	if(tempN<0){
+		countLen++;
+	}
+	
+	int[] a = new int[countLen];
+	int start = countLen-1;
+	if(tempN<0){
+		a[0] = -1;
+		tempN = tempN*(-1);
+	}
+	while(tempN>0){
+		quotient = tempN%10;
+		a[start] = 1;
+		start--;
+		for(int i=0;i<quotient;i++){
+			a[start] = 0;
+			start--;
+		}
+		
+		tempN = tempN/10;
+	}
+
+
+	return a;
+
+
+
+}

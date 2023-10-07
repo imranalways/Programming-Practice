@@ -1,0 +1,54 @@
+int isIsolated(long n){
+	if(n<1 || n> 2097151){
+		return -1;
+	}
+
+	long square = n*n;
+	long cube = n*n*n;
+	int count = 0;
+	long quotient = 0;
+	int isFound = 1;
+
+	while(square>0){
+		square = square/10;
+		count++;
+	}
+	long[] sqA = new long[count];
+	count = 0;
+	
+	while(cube>0){
+		cube = cube/10;
+		count++;
+	}
+	long[] cbA = new long[count];
+	count =0;
+	
+	square = n*n;
+	cube = n*n*n;
+
+	while(square>0){
+		quotient = square%10;
+		square = square/10;
+		sqA[count] = quotient;
+		count++;
+	}
+	count  = 0;
+	while(cube>0){
+		quotient = cube%10;
+		cube = cube/10;
+		cbA[count] = quotient;
+		count++;
+	}
+
+
+	for(int i=0;i<cbA.Length;i++){
+		for(int j=0;j<sqA.Length;j++){
+			if(cbA[i] == sqA[j]){
+				isFound = 0;
+				break;
+			}
+		}
+	
+	}
+	return isFound;	
+}

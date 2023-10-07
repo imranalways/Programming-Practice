@@ -1,0 +1,25 @@
+long findSmallestBEQnumber(){
+	long n = 2;
+	long cube = 0;
+	int quotient = 0;
+	int count = 0;
+	while(true){
+		cube = n*n*n;
+		while(cube>0){
+			quotient = Convert.ToInt32(cube%10);
+			if(quotient == 6){
+				count++;
+			}
+			cube = cube/10;
+		}
+		if(count == 4){
+			return n;
+
+		}	
+		n++;
+		count= 0;	
+	}
+
+
+
+}

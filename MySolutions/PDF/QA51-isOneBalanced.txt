@@ -1,0 +1,34 @@
+int isOneBalanced(int[] a){
+	int len = a.Length;
+	if(len<=0){
+		return 1;
+	}
+
+	int startCount = 0;
+	int endCount = 0;
+	int non1Count = 0;
+	for(int i=0;i<len;i++){
+		if(a[i] != 1 && a[i] != 0){
+			break;
+		}
+		startCount++;
+	}
+	for(int i=len-1;i>=0;i--){
+		if(a[i] != 1 && a[i] != 0){
+			break;
+		}
+		endCount++;
+	}
+
+	for(int i = startCount;i<len-endCount;i++){
+		if(a[i] == 1){
+			return 0;
+		}
+		non1Count++;
+	}
+
+	if((startCount+endCount) == non1Count){
+		return 1;
+	}
+	return 0;
+}

@@ -1,0 +1,15 @@
+int isPerfectSquare(int n){
+	if(n<0){
+		return 0;
+	}
+
+	int square=0;
+	int count=1;
+	while((square <=n){
+		square= count *count;
+		count++;
+	}
+	
+	return square;
+
+}

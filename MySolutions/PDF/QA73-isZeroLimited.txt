@@ -1,0 +1,19 @@
+int isZeroLimited(int[] a){
+	int len = a.Length;
+	if(len <=1){
+		return 1;
+	}
+	int n = 0;
+	int idx= (3*n)+1;
+
+	for(int i = 0;i<len;i++){
+		if(a[i] == 0 && idx != i){
+			return 0;
+		}
+		if(a[i] == 0 && idx == i){
+			n++;
+			idx= (3*n)+1;
+		}
+	}
+	return 1;
+}

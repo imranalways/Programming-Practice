@@ -1,0 +1,30 @@
+int FullnessQuotient(int n){
+	
+	if(n<1){
+		return -1;
+	}
+	int quotient = 0;
+	int div = 2;
+	int fullnessCount=0;
+	int temp = 0;
+	int foundOk = 1;
+	
+	while(div<10){
+		temp = n;
+		while(temp>0){
+			quotient = temp%div;
+			temp = temp/div;
+			if(quotient ==0){
+				foundOk = 0;
+				break;
+			}
+		
+		}
+		if(foundOk == 1){
+			fullnessCount++;
+		}
+		foundOk = 1;
+		div++;
+	}
+	return fullnessCount;
+}

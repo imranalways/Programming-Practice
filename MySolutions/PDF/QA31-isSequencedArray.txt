@@ -1,0 +1,37 @@
+int isSequencedArray(int[] a, int m,int n){
+	int len = a.Length;
+	if(len<=1){
+		return 0;
+	}
+	int isAsc = 1;
+	int min = a[0];
+	int temp = 0;
+	int foundOk = 1;
+	
+	for(int i=1;i<len;i++){
+		if(a[i]<min){
+			isAsc = 0;
+			break;
+		}
+	}
+	if(isAsc == 0){
+		return 0;
+	}
+	
+	if(a[0] != m || a[len-1] != n){
+		return 0;
+	}
+	temp = m;
+	for(int i= 1;i<len;i++){
+		if(temp == a[i]){
+			continue;
+		}
+		temp++;
+		if(a[i] != temp){
+			foundOk = 0;
+			break;
+		}
+	}
+	
+	return foundOk;
+}

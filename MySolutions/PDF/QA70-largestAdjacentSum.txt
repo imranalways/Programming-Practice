@@ -1,0 +1,15 @@
+int largestAdjacentSum(int[] a){
+    int len = a.Length;
+	int temp = 0;
+	int sum = 0;
+		
+	for(int i=0;i<len-1;i++){
+		temp = a[i]+a[i+1];
+		if(temp>sum){
+			sum = temp;
+		}
+	}	
+
+	return sum;
+
+}

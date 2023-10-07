@@ -1,0 +1,49 @@
+	int findPorcupineNumber(int n){
+	int isFound  = 0;
+	int firstPrime = 0;
+	int secondPrime = 0;
+	int count =0;
+	while(isFound < 1){
+		n=n+1;
+		if(isPrime(n) == 1){
+			if(n%10 == 9 && firstPrime == 0){
+				firstPrime = n;
+			}
+			else if(n%10 == 9 && secondPrime  == 0){
+				secondPrime = n;
+				break;
+			}
+			else{
+				firstPrime = 0;
+			}
+			
+		} 
+	}
+	
+	return firstPrime;
+}
+
+	int isPrime(int n){
+	int count = 0;
+	int divisor= 0;
+	int primaryDec = 1;
+	if(n<=1){
+		n= 2;
+	}
+	divisor = 2;
+	while(divisor<=n/2){
+		if(n % divisor ==0){
+			primaryDec = 0;
+			break;	
+		}
+		else{
+			primaryDec = 1;
+		}
+		divisor++;	
+	}
+	if(primaryDec == 1){
+		count =1 ;
+	}
+		
+	return count;
+}

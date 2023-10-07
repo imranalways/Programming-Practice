@@ -1,0 +1,32 @@
+int sameNumberOfFactors(int n1, int n2){
+	if(n1<0 || n2<0){
+		return -1;
+	}
+
+	if(n1 == n2){
+		return 1;
+	}
+	
+	if(n1 == 0 || n2 == 0){
+		return 0;
+	}
+	int num1Factor= factor(n1);
+	int num2Factor = factor(n2);
+	
+	if(num1Factor ==  num2Factor){
+		return 1;
+	}
+	return 0;
+}
+
+int factor(int n){
+	int count = 0;
+	int div = n;
+	while(div>0){
+		if(n%div == 0){
+			count++;
+		}
+		div--;
+	}
+	return count;
+}

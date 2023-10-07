@@ -1,0 +1,34 @@
+int isPrimeHappy(int n){
+	int prime = 2;
+	int sum = 0;
+	int isPrime = 0;
+	int lastPrime = prime;
+	while(prime<n){
+		isPrime = CheckPrime(prime);
+		if(isPrime == 1){
+			sum = sum+prime;
+			lastPrime = prime;
+		}
+		prime++;
+	}
+	
+	if(sum%n ==0 && lastPrime != n){
+		return 1;
+	}
+	
+	return 0;
+}
+
+
+int CheckPrime(int num){
+	int count = 2;
+	int isFound = 1;
+	while(num>count){
+		if(num%count==0){
+			return 0;
+		}
+		count++;
+	}
+	return isFound;
+
+}

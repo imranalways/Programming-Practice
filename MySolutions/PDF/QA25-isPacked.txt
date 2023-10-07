@@ -1,0 +1,51 @@
+int isPacked(int[] a){
+	int len = a.Length;
+	int foundOk = 1;
+	int count = 0;
+
+    	if(len==0){
+        	return 1;
+    	}
+	for(int i=0;i<len;i++){
+		for(int j=i;j<len;j++){
+			if(a[i] == a[j]){
+				count++;
+			}
+		}
+		if(count != a[i]){
+			foundOk = 0;
+			break;
+		}
+		i = i+ count-1;
+		count=0;
+	}
+	
+	if(foundOk ==0){
+		return 0;
+	}
+	
+	count = 0;
+	
+	for(int i=0;i<len;i++){
+		count = 0;
+		for(int j=i;j<len;j++){
+			if(a[i] == a[j]){
+				count++;
+			}
+			else{
+				if(a[i] != count){
+					foundOk = 0;
+					break;
+				}
+			}
+
+		}
+		if(foundOk == 0){
+			break;
+		}
+		i = i+ count-1;
+	}
+	
+	return foundOk;
+
+}

@@ -1,0 +1,18 @@
+int isCentered15(int[] a){
+	int len = a.Length;
+	int sum = 0;
+	int isFound =0;
+
+	for(int i=1;i<len-i;i++){
+		for(int j=i;j<len-i;j++){
+			sum +=a[j];
+		}
+		if(sum == 15){
+			isFound = 1
+			break;
+		}
+		sum =0;
+	}
+
+	return isFound;
+}

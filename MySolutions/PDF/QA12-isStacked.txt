@@ -1,0 +1,17 @@
+int isStacked(int n){
+	int sum=0;
+	int iter = 1;
+	int isStackedFound = 0;
+	int half = (n/2)+1;
+	while(iter<=half){
+		sum +=iter;
+		if(sum ==n){
+			isStackedFound = 1;
+			break;
+		}
+		iter++;
+	}
+
+	return isStackedFound;
+	
+}

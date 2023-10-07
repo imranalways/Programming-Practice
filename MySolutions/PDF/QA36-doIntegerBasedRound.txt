@@ -1,0 +1,48 @@
+int[] doIntegerBasedRound(int[] a, int n){
+	int len = a.Length;
+	if(n<=0){
+		return a;
+	}
+	int temp =0;
+	int multi = 0;
+	int count = 0;
+	int diffPre = 0;
+	int diffPost = 0;
+	int sign = -1;
+	for(int i=0;i<len;i++){
+		if(a[i]<0){
+			continue;
+		}
+		temp = a[i];
+		while(multi<=temp){
+			multi = n*count;
+			if(count==0){
+				a[i] = multi;
+			}
+			else{
+				diffPre = temp-a[i];
+				diffPost = multi - temp;
+				if(diffPre<0){
+					diffPre = diffPre*sign;
+				}
+				if(diffPost<0){
+					diffPost = diffPost*sign;
+				}
+				if(diffPost == diffPre){
+					a[i] = multi;
+				}
+			
+				else if(diffPost<diffPre){
+					a[i] = multi;
+				}
+				
+			}
+			count++;
+		}
+		count=0;
+		multi = 0;
+			
+	}	
+	
+	return a;
+}

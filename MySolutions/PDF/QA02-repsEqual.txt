@@ -1,0 +1,19 @@
+int repsEqual(int[] a, int n){
+	int len = a.Length;
+	int arraySum = 0;
+	int tenBase = 1;
+	int isFound = 0;
+
+	for(int i=0;i<len;i++){
+		for(int j = 0;j<len-1-i;j++){
+			tenBase *=10;
+		}
+		arraySum +=(tenBase*a[i]);
+		tenBase = 1;
+	}
+
+	if(arraySum == n){
+		isFound = 1;
+	}
+	return isFound;
+}

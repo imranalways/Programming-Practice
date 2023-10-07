@@ -1,0 +1,32 @@
+int isTwinPrime(int n){
+	if(n<=1){
+		return 0;
+	}
+	
+	bool isPrime = FindPrime(n);
+	if(!isPrime){
+		return 0;
+	}
+	bool nextPrime = FindPrime(n+2);
+	if(!nextPrime){
+		bool prePrime = FindPrime(n-2);
+		if(!prePrime){
+			return 0;
+		}
+	}
+	return 1;
+
+}
+
+bool FindPrime(int n){
+	int div = 2;
+	
+	while(div<n){
+		if(n%div == 0){
+			return false;
+		}
+		div++;
+	}
+	return true;
+
+}

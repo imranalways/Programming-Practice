@@ -1,0 +1,47 @@
+int matches(int[] a, int[] p){
+	int lenA = a.Length;
+	int lenP = p.Length;
+	int sign = -1;
+	int temp = 1;
+	int wasLessThanZero = 0;
+	int iter = 0;
+	int isMatches = 1;
+	
+
+	for(int i=0;i<lenA;i++){
+		if(a[i] == 0){
+			return 0;
+		}
+	}
+	
+
+	for(int i=0;i<lenP;i++){
+		temp = p[i];
+		if(p[i]<0){
+			temp *=sign;
+			wasLessThanZero = 1;
+		}
+		temp += iter;
+		for(int j=iter;j<temp;j++){
+			if(wasLessThanZero == 1){
+				if(a[j]>0){
+					isMatches = 0;
+					break;
+				}
+			}
+			else{
+				if(a[j]<0){
+					isMatches = 0;
+					break;
+				}
+			}
+		}
+		if(isMatches == 0){
+			break;
+		}
+		wasLessThanZero = 0;
+		iter = temp;
+	}
+
+	return isMatches;
+}

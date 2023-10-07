@@ -1,0 +1,26 @@
+int primeCount(int start, int end){
+	int count = 0;
+	int divisor= 0;
+	int primaryDec = 1;
+	if(start<=1){
+		start = 2;
+	}
+	for(int i=start;i<=end;i++){
+		divisor= 2;
+		while(divisor<=i/2){
+			if(i % divisor ==0){
+				primaryDec = 0;
+				break;	
+			}
+			else{
+				primaryDec = 1;
+			}
+			divisor++;	
+		}
+		if(primaryDec == 1){
+			count++;
+		}
+		
+	}
+	return count;
+}

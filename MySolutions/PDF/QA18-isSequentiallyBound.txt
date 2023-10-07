@@ -1,0 +1,48 @@
+int isSequentiallyBound(int[] a){
+	int len = a.Length;
+	int found = 1;
+	if(len == 0){
+		return found;
+	}
+
+	int min = a[0];
+	int temp = 0;
+	int tempNew = 0;
+
+	for(int i=0;i<len;i++){
+		temp = a[i];
+		if(temp <= 0){
+			found = 0;
+			break;
+		}
+		else if(temp<min){
+			found = 0;
+			break;
+		}
+	}
+
+	int count =0;
+	
+	for(int i=0;i<len;i++){
+		temp  = a[i];
+		if(tempNew == temp){
+			continue;
+		}
+		for(int j=0;j<len;j++){
+			if(temp == a[j]){
+				count++;
+			}
+		}
+		if(count>=temp){
+			found = 0;
+			break;
+		}
+		count=0;
+		tempNew = temp;
+
+	}
+	
+	return found;
+
+
+}

@@ -1,0 +1,53 @@
+int minMaxDisjoint(int[] a){
+	int len = a.Length;
+	if(len == 0){
+		return 0;
+	}
+	int max = a[0];
+	int min = a[0];
+	int temp = 0;
+	int maxIdx = 0;
+	int minIdx = 0;
+	int found = 1;
+
+	for(int i=1;i<len;i++){
+		temp = a[i];
+		if(temp>max){
+			max = temp;
+			maxIdx  = i;
+		}
+		else if(temp == max){
+			found = 0;	
+			break;
+		}
+	}
+
+	for(int i =1;i<len;i++){
+		temp = a[i];
+		if(temp<min){
+			min = temp;
+			minIdx = i;
+		}
+		else if(temp == min){
+			found = 0;
+			break;
+		}
+	}
+	
+	if(max == min){
+		found = 0;
+	}
+	else if(maxIdx>minIdx){
+		if((maxIdx-minIdx) == 1){
+			found = 0;
+		}
+	}
+	else{
+		if((minIdx-maxId) == 1){
+			found = 0;
+		}
+	}
+		
+	return found;	
+
+}

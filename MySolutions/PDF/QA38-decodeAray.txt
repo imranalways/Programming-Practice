@@ -1,0 +1,28 @@
+int decodeArray(int[] a){
+	int len = a.Length;
+	if(len <0){
+		return 0;
+	}
+
+	int sign = 1;
+	if(a[0]<0){
+		sign = -1;
+	}
+
+	int number = 0;
+	int temp = a[0];
+	int diff = 0;
+
+	for(int i =1;i<len;i++){
+		diff = temp -a[i];
+		
+		if(diff<0){
+			diff=diff*(-1);
+		}
+		
+		number = number *10+diff;
+		temp = a[i];
+	}
+
+	return number*sign;
+}

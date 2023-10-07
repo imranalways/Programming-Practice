@@ -1,0 +1,26 @@
+static int checkConcatenatedSum(int n,  int catlen){
+	int sum = 0;
+	int mult = 0;
+	int iter = catlen;
+	int quotient = 0;
+    	int foundOk = 0;
+    	int tempN = n;
+
+	while(tempN>0){
+		quotient = tempN%10;
+		while(iter>0){
+			mult = mult* 10+quotient;
+		        iter--;
+		}
+		
+		sum+=mult;
+		mult = 0;
+		iter = catlen;
+		tempN= tempN/10;
+	}
+	    
+	if(sum == n){
+	    foundOk = 1;
+	}
+	return foundOk;
+}

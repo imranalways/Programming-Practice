@@ -1,0 +1,28 @@
+int[] ClusterCompression(int[] a){
+	int len  = a.Length;
+	int count = 1;
+	if(len==0){
+		return new int[];
+	}
+	int temp= a[0];
+	for(int i=1;i<len;i++){
+		if(temp!=a[i]){
+			count++;
+		}
+		temp =a[i];
+	}
+	
+	int[] result =  new int[count];
+	count = 1;
+	result[0] = a[0];
+	temp = a[0];
+	for(int i=1;i<len;i++){
+		if(temp != a[i]){
+			result[count] = a[i];
+			count++;
+		}
+		temp = a[i];
+	}
+	return result;
+
+}

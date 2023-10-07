@@ -1,0 +1,39 @@
+int computeDepth(int n){
+	int count = 0;
+	int quotient = 0;
+	int num = 0;
+	int iter = 0;
+	int[] a = new int[10];
+	int len = a.Length;
+	int alreadyHas = 0;
+
+	while(count<10){
+	    	iter++;
+		num = n*iter;
+		while(num>0){
+			quotient= num%10;
+			num = num/10;
+			for(int i=0;i< len;i++){
+				if(count ==0){
+					a[i] = quotient;
+					alreadyHas = 0;
+				}
+				else{
+					if(a[i] == quotient){
+						alreadyHas = 1;
+						break;
+					}
+				}
+			}
+
+			if(alreadyHas == 0){
+				a[count] = quotient;
+				count++;
+			}
+			alreadyHas = 0;
+		
+		}
+	}
+
+	return iter;
+}

@@ -1,0 +1,18 @@
+void updateMileageCounter(int[] a, int milage){
+	int len = a.Length;
+	long sum =0;
+
+	for(int i=len-1;i>=0;i--){
+		sum = sum*10+a[i];
+
+	}
+	sum = sum + milage;
+	
+	int iter = 0;
+	while(sum>0 && iter<len){
+		a[iter] = Convert.ToInt32(sum%10);
+		sum = sum/10;
+		iter++;
+	}
+
+}

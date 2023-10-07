@@ -1,0 +1,51 @@
+int is121Array(int[] a){
+	int len = a.Length;
+	int actualLen = len-1;
+	int startIdx = 0;
+	int endIdx = 0;
+	int foundOk = 1;
+	if(len<=2){
+		return 0;
+	}
+
+	if(a[0] !=1 || a[actualLen] !=1){
+		return 0;
+	}
+	
+	for(int i=0;i<len;i++){
+		if(a[i] == 1){
+			startIdx = i;
+		}	
+		else{
+			break;
+		}
+	}
+	if(startIdx == actualLen){
+		return 0;
+	}
+	
+	endIdx = actualLen - startIdx;
+
+	for(int i = endIdx;i<len;i++){
+		if(a[i] != 1){
+			foundOk = 0;
+			break;
+		}
+	}
+	if(foundOk == 0){	
+		return 0;
+	}
+
+	startIdx ++;
+	
+	for(int i=startIdx;i<endIdx;i++){
+		if(a[i] != 2){
+			foundOk = 0;
+			break;
+		}
+	}
+
+	return foundOk;
+}
+
+

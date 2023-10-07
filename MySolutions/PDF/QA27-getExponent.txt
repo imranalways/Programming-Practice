@@ -1,0 +1,18 @@
+int getExponent(int n,int p){
+	int exp = p;
+	int count = 0;
+	if(p<=1){
+		return -1;
+	}
+	if(n<0){
+		n*=-1;
+	}
+	
+	while(exp<=n){
+		if(n%exp == 0){
+			count++;
+		}
+		exp*=p;
+	}
+	return count;
+}

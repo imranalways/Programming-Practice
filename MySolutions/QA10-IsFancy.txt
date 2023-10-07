@@ -1,0 +1,19 @@
+int IsFancy(int n){
+	int firstNum = 1;
+	int secondNum = 1;
+	int target = 0;
+	int isFound = 0;
+	while(target<n){
+		secondNum = secondNum*3;
+		firstNum = firstNum*2;
+		target = secondNum + firstNum;
+		if(target == n){
+			isFound = 1;
+			break;
+		}
+	}
+	
+	return isFound;
+	
+
+}

@@ -1,0 +1,38 @@
+int countSquareParis(int[] a){
+	int len = a.Length;
+	int iteration=0;
+	int sum = 0;
+	int count = 0;
+	int perfectSquare = 0;
+	if(len <=1){
+		return count;
+	}
+	for(int i=0;i<len;i++){
+		if(a[i] <=0){
+			continue;
+		}
+		for(int j=0;j<len;j++){
+			if(a[j] <= 0){
+				continue;
+			}
+			
+			if(a[i] < a[j]){
+				sum =a[i] + a[j];
+				iteration = 2;
+				perfectSquare =0;
+				while(perfectSquare < sum){
+					perfectSquare = iteration * iteration;
+					iteration +=1;
+					if(perfectSquare == sum){
+						count +=1;
+						break;
+					}
+				}
+			}
+		}
+	}
+
+	return count;
+
+
+}

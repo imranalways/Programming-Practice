@@ -1,0 +1,12 @@
+int closest Fibonacci(int n){
+	int first =0;
+	int second = 1;
+	int fibo=0;
+	while(fibo<=n){
+		fibo = first+second;
+		first = second;
+		second = fibo;
+	}
+	return first;
+	
+}

@@ -1,0 +1,15 @@
+int[] pairWiseSum(int[] a){
+	int len = a.Length;
+
+	if(len%2 !=0 || len ==0){
+		return new int[];
+	}
+        int[] SumArray = new int[len/2];
+	int iter = 0;
+	for(int i=0;i<len-1;i=i+2){
+		SumArray[iter] = a[i]+a[i+1];
+		iter++;
+	}
+	
+	return SumArray;
+}

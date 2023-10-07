@@ -1,0 +1,24 @@
+int isOnionArray(int[] a){
+	int len = a.Length;
+	int sum = 0;
+	int isFound = 1;
+	int start =0;
+	int end = len-1;
+	while(start<=len/2){
+		while(end>=len/2){
+			if(start == end){
+				break;
+			}
+			sum=a[start]+a[end];
+	
+			if(sum>10){
+				return 0;
+			}
+			break;
+		}
+		start++;
+		end--;
+	}
+	return isFound;
+
+}

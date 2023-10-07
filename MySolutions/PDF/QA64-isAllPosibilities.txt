@@ -1,0 +1,32 @@
+int isAllPosibilities(int[] a){
+	int len = a.Length;
+	if(len<=0){
+		return 0;
+	}
+	int max = a[0];
+	for(int i = 1;i<len;i++){
+		if(a[i]>max){
+			max = a[i];
+		}
+	}
+	int tempLen = len-1;
+	if(max != len-1){
+		return 0;
+	}
+	int found = 0;
+	while(tempLen>=0){
+		for(int i = 0;i<len;i++){
+			if(a[i] == tempLen){
+				found = 1;
+				break;
+			}
+			found = 0;
+		}
+		
+		if(found == 0){
+			return 0;
+		}
+		tempLen --;
+	}
+	return 1;
+}

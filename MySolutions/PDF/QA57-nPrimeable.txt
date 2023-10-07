@@ -1,0 +1,28 @@
+int nPrimeable(int[] a, int n){
+	int len = a.Length;
+
+	for(int i=0;i<len;i++){
+		bool isPrime = FindPrime(a[i]+n);
+	
+		if(!isPrime){
+			return 0;
+		}
+	}
+	return 1;
+
+}
+
+bool FindPrime(int n){
+	int div = 2;
+	
+	while(div<n){
+		if(n%div == 0){
+			return false;
+		}
+		div++;
+
+	}
+
+	return true;
+
+}

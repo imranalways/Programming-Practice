@@ -1,0 +1,36 @@
+int isSym(int[] a){
+	int len = a.Length;
+	int[] right = new int[len];
+	int[] left = new int[len];
+	int idx = 0;
+	int isSymFound = 1;
+
+	for(int i=0;i<len;i++){
+		if(a[i]%2 == 0){
+			right[i] = 1;
+		}
+		else{
+			right[i] = 0;
+		}
+	} 
+	
+	for(int i=len-1;i>=0;i--){
+		if(a[i]%2 == 0){
+			left[idx] = 1;
+		}
+		else{
+			left[idx] = 0;
+		}
+		idx++;
+	} 
+
+	for(int i=0;i<len;i++){
+		if(right[i] != left[i]){
+			isSymFound = 0;
+			break;
+		}
+	}
+
+	return isSymFound;
+
+}

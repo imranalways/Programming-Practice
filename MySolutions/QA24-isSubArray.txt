@@ -1,0 +1,22 @@
+int sub(int[] a){
+	int len = a.Length;
+	int value = 0;
+	int sum = 0;
+	int isSubFound = 1;
+
+	for(int i = 0;i<len-1;i++){
+		value = a[i];
+		sum = 0;
+		for(int j = i+1;j<len;j++){
+			sum+=a[j];
+		}
+	
+		if(value<sum){
+			isSubFound=0;
+			break;
+		}
+	}
+	
+	return isSubFound;
+
+}

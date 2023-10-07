@@ -1,0 +1,16 @@
+char[] f(char[] a , int start, int len){
+	int charLen = a.Length;
+	int totalIteration = start + len;
+	int count = 0;
+	char[] newChar = new char[totalIteration];
+
+	if(charLen <totalIteration){
+		retunt newChar;
+	}
+	
+	for(int i=start;i<totalIteration;i++){
+		newChar[count] = a[i];
+		count++;
+	}
+	return newChar;
+}

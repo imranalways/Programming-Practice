@@ -1,0 +1,41 @@
+int Trivalent(int[] a){
+	int len = a.Length;
+	int[] nA= new int[3];
+	int count = 0;
+	int multiple= 0;
+	int isFound = 0;
+
+	for(int i=0;i<len;i++){
+		
+		for(int j=0;j<nA.Length;j++){
+			if(count == 0){
+				nA[j] = a[i];
+			}
+			else{
+				if(a[i] == nA[j]){
+					multiple = 1;
+					break;
+				}
+			}
+		}
+		if(multiple == 0){
+			if(count>=3){
+				count++;
+				break;
+			}
+			nA[count] = a[i];
+			count++;
+		}
+		if(count==0){
+			count++;
+		}
+		multiple = 0;
+		
+	}
+
+	if(count == 3){
+		isFound = 1;
+	}
+
+	return isFound;
+}

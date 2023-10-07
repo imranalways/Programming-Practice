@@ -1,0 +1,55 @@
+int isComplete(int[] a){
+	int len = a.Length;
+	if(len<=0){
+		return 0;
+	}
+	bool hasEven = false;
+	for(int i=0;i<len;i++){
+		if(a[i]%2 == 0){
+			hasEven = true;
+			break;
+		}
+	}
+	if(!hasEven){
+		return 0;
+	}
+	bool hasSquare = false;
+	int square = 0;
+	int iter = 2;
+	for(int i = 0;i<len;i++){
+		while(square<a[i]){
+			square = iter*iter;
+			iter++;
+			if(square == a[i]){
+				hasSquare = true;
+				break;
+			}
+		}
+		iter = 2;
+	}
+
+	if(!hasSquare){
+		return 0;
+	}
+
+	bool hasSum = false;
+	int sum = 0;
+	for(int i =0;i<len;i++){
+		for(int j =0;j<len;j++){
+			if(i == j){
+				continue;
+			}
+			sum = a[i]+a[j];
+			if(sum == 8){
+				hasSum = true;
+				break;
+			}
+			
+		}	
+	}
+	if(!hasSum){
+		return 0;
+	}	
+
+	return 1;
+}

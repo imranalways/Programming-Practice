@@ -1,0 +1,40 @@
+int isHodder(int n){
+	bool prime = isPrime(n);
+	if(!prime){
+		return 0;
+	}
+    Console.WriteLine(prime);
+	int hodder = checkHodder(n);
+
+	
+	return hodder;
+}
+
+int checkHodder(int n){
+	int num = 2;
+	int found = 0;
+	while(num<n){
+
+		num = 2*num;
+		if(n == (num-1)){
+		    found = 1;
+		    break;
+	    }
+	}
+	return found;
+}
+
+bool isPrime(int n){
+	int count = 2;
+	bool isOk = true;
+	
+	while(count<n){
+		if(n%count == 0){
+			isOk = false;
+			break;
+		}
+		count++;
+	}
+
+	return isOk;
+}

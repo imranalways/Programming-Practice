@@ -1,0 +1,17 @@
+double eval(int[] a, double x){
+	int len = a.Length-1;
+	int iter = 0;
+	double sum = 1;
+	double evalSum = 0;
+	for(int i = len;i>=0;i--){
+		iter = i;
+		while(iter>0){
+			sum = sum*x;
+			iter--;
+		}
+		sum = sum*(a[i]);
+		evalSum = evalSum+sum;
+		sum = 1;
+	}
+	return evalSum;
+}

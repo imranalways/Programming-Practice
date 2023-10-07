@@ -1,0 +1,13 @@
+int hasNoZeroes(int[] a){
+	int len = a.Length;
+	int isNonZero= 1;
+
+	for(int i=0;i<len;i++){
+		if(a[i] == 0){
+			isNonZero = 0;
+			break;
+		}
+	}
+	
+	return isNonZero;
+}

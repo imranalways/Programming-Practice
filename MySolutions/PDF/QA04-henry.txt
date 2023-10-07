@@ -1,0 +1,35 @@
+int henry(int i,int j){
+	int sum = 1;
+	int n = 6;
+	int div = 2;
+	int[] a = new int[j];
+	int start =0;
+	while(start<j){
+		while(div<=n/2){
+			if(n%div == 0){
+				sum+=n/div;
+			}
+			
+			div++;
+		}
+		if(sum == n){
+			a[start] = sum;
+			start++;
+		}
+		sum =1;
+		div =2;
+		n++;
+	}
+	sum=0;
+	for(int k = 0;k<a.Length;k++){
+		if(k+1 == i){
+			sum+=a[k];	
+		}
+		else if(k+1 == j){
+			sum+=a[k];
+		}
+	}
+	
+	return sum;
+
+}

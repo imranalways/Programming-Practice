@@ -1,0 +1,19 @@
+int isSquare(int n){
+	int isFound = 0;
+	int value = 0;
+	int count = 1;
+	if(n ==0){
+		return 1;
+	}
+	while(value<n){
+		value = count * count;
+		if(value == n){
+			isFound = 1;
+			break;
+		}
+		count++;
+	}
+
+	return isFound;
+
+}

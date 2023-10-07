@@ -1,0 +1,31 @@
+int isOddHeavy(int[] a){
+	int len = a.Length;
+	int foundOk = 1;
+	int temp=0;
+
+	if(len == 1){
+	    if(a[0]%2 == 0){
+	        return 0;
+	    }
+	    return 1;
+	}
+
+	for(int i=0;i<len;i++){
+		temp = a[i];
+		if(temp%2 !=0){
+			for(int j=0;j<len;j++){
+				if(a[j]%2 == 0){
+					if(temp<a[j]){
+						foundOk = 0;
+						break;
+					}
+				}
+			}
+		}
+		if(foundOk == 0){
+			break;
+		}
+	}
+	
+	return foundOk;
+}

@@ -1,0 +1,53 @@
+int[] encodeNumber(int n){
+	if(n<=1){
+		return new int[0];
+	}
+	if(checkPrime(n) == 1){
+		return new int[]{n};
+	}
+	
+	int factor = 2;
+	int count = 0;
+	int temp = n;
+
+	while(factor<=n/2){
+		if(checkPrime(factor) == 1){
+			while(temp%factor == 0){
+				count++;
+				temp = temp/factor;
+			}
+		}
+		factor++;
+
+	}
+	int[] a = new int[count];
+	count = 0;
+	factor = 2;
+	temp = n;
+	while(factor<=n/2){
+		if(checkPrime(factor) == 1){
+			while(temp%factor == 0){
+				a[count] = factor;
+				count++;
+				temp = temp/factor;
+			}
+		}
+		factor++;
+
+	}
+	return a;
+}
+
+int checkPrime(int n){
+	int factor = 2;
+	int ok = 1;
+
+	while(factor<=n/2){
+		if(n%factor == 0){
+			ok = 0;
+			break;
+		}
+		factor++;
+	}
+	return ok;
+}	

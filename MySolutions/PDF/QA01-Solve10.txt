@@ -1,0 +1,49 @@
+int [] Solve10(){
+	int n  = 10;
+	int baseFactorial = FindFactorial(n);
+	int count = 1;
+	int countX = 0;
+	int countY = 0;
+	int x = 0;
+	int y = 0;
+	int sum = 0;
+	int[] a  = new int[2];
+	
+	for(int i=1;i<n;i++){
+		count = 1;
+		while(sum<baseFactorial){
+			x = FindFactorial(count);
+			y = FindFactorial(i);
+			sum = x+y;
+			if(sum == baseFactorial){
+				countX = count;
+				countY = i;
+				break;
+			}
+			count++;
+		}
+		
+		
+	}
+
+	a[0] = countX;
+	a[1] = countY;
+	
+	return a;
+
+}
+
+static int FindFactorial(int n){
+	int factorial = 1;
+	if(n == 0 || n==1){
+		return 1;
+	}
+
+	while(n>0){
+		factorial *=n;
+		n--;
+	}
+
+	return factorial;
+
+}

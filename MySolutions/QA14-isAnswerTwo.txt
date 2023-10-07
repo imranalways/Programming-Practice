@@ -1,0 +1,32 @@
+int isAnswerTow(int[] a){
+	int len = a.length;
+	int[] newArray = new int[len];
+	int count =0;
+
+	for(int i=0;i<len;i++){
+		newArray[i] = 1;
+		if(a[i]==-99){
+			continue;
+		}
+		for(int j=i+1;j<len;j++){
+			if(a[i] == a[j]){
+				newArray[i] = newArray[i]+1;
+				a[j] = -99;
+			}
+		}	
+	}
+	int max = newArray[0];
+	int value = a[0];
+	int temp = 0;
+	for(int i=1;i<len;i++){
+		temp = newArray[i];
+		if(max<temp){
+			max = temp;
+			value = a[i];
+		}
+	}
+	
+	return value;
+	
+
+}

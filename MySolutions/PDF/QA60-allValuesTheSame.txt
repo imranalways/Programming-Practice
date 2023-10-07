@@ -1,0 +1,15 @@
+int allValuesTheSame(int[] a){
+	int len = a.Length;
+
+	if(len<=0){
+		return 0;
+	}
+	int firstDigit = a[0];	
+	for(int i = 1;i<len;i++){
+		if(a[i] != firstDigit){
+			return 0;
+		}
+	}
+	
+	return 1;
+}
