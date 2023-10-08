@@ -1,0 +1,25 @@
+int oddValent(int[] a){
+	int len = a.Length;
+	if(len <=1){
+		return 0;
+	}
+	int found = 0;
+	for(int i = 0;i<len-1;i++){
+		if(a[i] == a[i+1]){
+			found = 1;
+			break;
+		}
+	}
+	if(found == 0){
+		return 0;
+	}
+
+	for(int i = 0;i<len;i++){
+		if(a[i]%2 != 0){
+			return 1;
+		}
+	}
+	
+	return 0;
+
+}

@@ -1,0 +1,16 @@
+int isDigitSum(int n, int m){
+	int quotient = 0;
+	int sum = 0;
+	while(n>0){
+		quotient = n%10;
+		sum = sum+quotient;
+		n = n/10;
+	}
+
+	if(sum<m){
+		return 1;
+	}
+	return 0;
+
+
+}

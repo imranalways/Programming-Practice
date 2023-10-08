@@ -1,0 +1,49 @@
+int isFineArray(int[] a){
+	int len = a.Length;
+    int hasOnePrime = 0;
+	if(len == 0){
+		return 1;
+	}
+
+	for(int i = 0;i<len;i++){
+		bool isPrime = FindPrime(a[i]);
+		if(isPrime){
+		    hasOnePrime = 1;
+			for(int j = 0;j<len;j++){
+				if(i == j){
+					continue;
+				}
+				if((a[j]+2) == a[i]){
+					isPrime = FindPrime(a[j]+2);
+					if(isPrime){
+						return 1;
+					}
+				}
+				else if((a[j]-2) == a[i]){
+					isPrime = FindPrime(a[j]-2);
+					if(isPrime){
+						return 1;
+					}
+				}
+			}
+		}
+	}
+	if(hasOnePrime == 0){
+	   return 1;
+	}
+
+	return 0;
+
+}
+
+static bool FindPrime(int n){
+	int div = 2;
+
+	while(div<n){
+		if(n%div == 0){
+			return false;
+		}
+		div++;
+	}
+    return true;
+}
