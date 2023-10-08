@@ -1,0 +1,37 @@
+int isCubePerfect(int[] a){
+	int len = a.Length;
+	if(len == 0){
+		return 1;
+	}
+
+	int sign = -1;
+	int temp = 0;
+	int cube = 0;
+	int iter = 0;
+	int found = 0;
+	for(int i = 0;i<len;i++){
+		temp = a[i];
+		if(temp<0){
+			temp = temp*sign;
+		}
+	
+		while(cube<=temp){
+			cube = iter*iter*iter;
+			if(cube == temp){
+				found = 1;
+				break;
+			}
+			iter++;
+		}
+		if(found == 0){
+			return 0;
+		}
+		found = 0;
+		iter = 0;
+		cube = 0;
+	}
+	
+	return 1;
+
+
+}
