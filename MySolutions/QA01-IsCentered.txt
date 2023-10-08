@@ -1,26 +1,19 @@
 int IsCentered(int[] arr){
 	int length = arr.Length;
 	int lenHalf = length/2;
-	int leftSum = 0;
-	int rightSum = 0;
 	
 	if(length % 2 == 0){
 		return 0;
 	}
-	if(length == 1){
-		return 1;
+	
+	for(int i=0;i<length;i++){
+		if(i == lenHalf){
+			continue;
+		}
+		if(arr[i]<= arr[lenHalf]){
+			return 0;
+		}
 	}
 	
-	for(int i=0;i<lenHalf;i++){
-		leftSum +=arr[i];
-	}
-	for(int i=lenHalf+1;i<length;i++){
-		rightSum +=arr[i];
-	}
-	
-	if(leftSum>arr[lenHalf] && rightSum>arr[lenHalf]){
-		return 1;
-	}
-
-	return 0;
+	return 1;
 }
