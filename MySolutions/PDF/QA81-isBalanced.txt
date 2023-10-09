@@ -1,0 +1,28 @@
+int isBalanced(int[] a){
+	int len = a.Length;
+	if(len%2 != 0){
+		return 0;
+	}
+	int sign = -1;
+	int count = 0;
+	for(int i = 0;i<len;i++){
+		if(a[i]<=0){
+			continue;
+		}
+		for(int j = 0;j<len;j++){
+			if(a[j]>0 || a[i] == a[j]){
+				continue;
+			}
+			if(a[i] == (a[j]*sign)){
+				count = 1;
+				a[j] = 0;
+				break;
+			}
+		}
+		if(count == 0){
+			return 0;
+		}
+		count = 0;
+	}
+	return 1;
+}
