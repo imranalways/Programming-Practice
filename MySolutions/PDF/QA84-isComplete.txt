@@ -1,0 +1,41 @@
+int isComplete(int[] a){
+	int len = a.Length;
+	if(len == 0){
+		return 0;
+	}
+	int min = 0;
+	int max = 0;
+	for(int i = 0;i<len;i++){
+		if(a[i]%2 == 0 && min == 0){
+			min = a[i];
+			max = a[i];
+		}
+		else if(a[i]%2 == 0){
+			if(a[i]<min){
+				min = a[i];
+			}
+			else if(a[i]>max){
+				max = a[i];
+			}
+		}
+	}
+	
+	if(min == max){
+		return 0;
+	}
+	int found = 0;
+	while(min<max){
+		min++;
+		for(int i = 0;i<len;i++){
+			if(a[i] == min){
+				found  = 1;
+				break;
+			}
+		}
+		if(found == 0){
+			return 0;
+		}
+		found = 0;
+	}
+	return 1;
+}
