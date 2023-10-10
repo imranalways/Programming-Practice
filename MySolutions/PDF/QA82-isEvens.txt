@@ -1,0 +1,12 @@
+int isEvens(int n){
+	int quotient = 0;
+	
+	while(n>0){
+		quotient = n%10;
+		if(quotient%2 != 0){
+			return 0;
+		}
+		n = n/10;
+	}
+	return 1;
+}
