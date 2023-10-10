@@ -1,0 +1,31 @@
+int isMagicArray(int[] a){
+	int len = a.Length;
+	if(len== 0){
+		return 0;
+	}
+	int sum = 0;
+	for(int i = 0;i<len;i++){
+		bool isPrime = findPrime(a[i]);
+		if(isPrime){	
+			sum = sum+a[i];
+		}
+	}
+	if(a[0] == sum){
+		return 1;
+	}
+	
+	return 0;
+
+}
+
+bool findPrime(int n){
+	int div = 2;
+
+	while(div<n){
+		if(n%div == 0){
+			return false;
+		}
+		div++;
+	}
+	return true;
+}
