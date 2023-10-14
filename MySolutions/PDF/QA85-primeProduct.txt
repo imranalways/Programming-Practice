@@ -1,0 +1,43 @@
+int primeProduct(int n){
+	int div = 1;
+	int temp =n;
+	int primeCount = 0;
+	while(true){
+	    div++;
+		if(n%div != 0){
+			continue;
+		}
+		if(div>=temp){
+		    break;
+		}
+		temp = n/div;
+		int isPrime = FindPrime(temp);
+		if(isPrime == 1){
+			primeCount++;
+		}
+		isPrime = FindPrime(div);
+		if(isPrime ==1){
+			primeCount++;
+		}
+		isPrime =  0;
+	}
+	if(primeCount == 2){
+		return 1;
+	}
+	
+	return 0;
+}
+
+int FindPrime(int n){
+	int div = 2;
+	
+	while(div<n){
+		if(n%div == 0){
+			return 0;
+		}
+		div++;
+	}
+	
+	return 1;
+
+}
