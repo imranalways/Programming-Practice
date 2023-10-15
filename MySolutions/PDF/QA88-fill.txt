@@ -1,0 +1,23 @@
+int[] fill (int[]arr, int k, int n)
+  {
+    int len = arr.Length;
+    if (len == 0 || k < 0 || n < 0)
+      {
+	return new int[0];
+      }
+    int count = 0;
+    int[] arr2 = new int[n];
+    while (count < n)
+      {
+	for (int i = 0; i<k; i++)
+	  {
+	    arr2[count] = arr[i];
+	    count++;
+	    if (count == n)
+	      {
+		    break;
+	      }
+	  }
+      }
+    return arr2;
+  }
