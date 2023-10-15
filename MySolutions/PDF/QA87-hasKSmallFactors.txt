@@ -1,0 +1,20 @@
+bool hasKSmallFactors(int k, int n){
+	int div = 1;
+	int temp = n;
+	if(k<div){
+		return false;
+	}
+	while(div<temp){
+		div++;
+		if(n%div != 0){
+			continue;
+		}
+
+		temp = n/div;
+	
+		if(temp<k && div<k){
+			return true;
+		}
+	}
+	return false;
+}
