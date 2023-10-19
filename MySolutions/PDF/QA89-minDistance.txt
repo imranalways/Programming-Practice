@@ -1,0 +1,24 @@
+int minDistance(int n){
+	int preFactor = 1;
+	int currFactor = 1;
+	int div = 2;
+	int minDis = n;
+	int diff = 0;
+
+	while(div<=n){
+		preFactor = currFactor;
+		if(n%div == 0){
+			currFactor = div;
+		}
+		else{
+		    div++;
+		    continue;
+		}
+		diff = currFactor-preFactor;
+		if(diff<minDis){
+			minDis =diff; 
+		}
+		div++;
+	}
+	return minDis;
+}
