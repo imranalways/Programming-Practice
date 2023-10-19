@@ -1,0 +1,32 @@
+int isBean(int[] a){
+	int len = a.Length;
+	if(len == 0){
+		return 1;
+	}
+	int found9 = 0;
+	int found13 = 0;
+	int found7 = 0;
+	int found16 = 0;
+
+	for(int i = 0;i<len;i++){
+		if(a[i] == 9){
+			found9 = 1;
+		}
+		else if(a[i] == 7){
+			found7 = 1;
+		}
+		else if(a[i] == 13){
+			found13 = 1;
+		}
+		else if(a[i] == 16){
+			found16 = 1;
+		}
+	}
+	if(found9 == 1 && found13 == 0){
+		return 0;
+	}
+	if(found7 == 1 && found16 == 1){
+		return 0;
+	}
+	return 1;
+}
