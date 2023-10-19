@@ -1,0 +1,22 @@
+int isWave(int[] a){
+	int len = a.Length;
+	if(len == 0){
+		return 1;
+	}
+	
+	for(int i=0;i<len-1;i++){
+		if(a[i]%2 == 0){
+			if(a[i+1]%2 == 0){
+				return 0;
+			}
+		}
+		else if(a[i]%2 != 0){
+			if(a[i+1]%2 != 0){
+				return 0;
+			}
+		}
+	}
+	
+	return 1;
+
+}
